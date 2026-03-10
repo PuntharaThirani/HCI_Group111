@@ -1,16 +1,75 @@
-# React + Vite
+🛋️ 3D Furniture Design Web App (HCI Group 111)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a web-based 3D Furniture Design Application built for our university HCI module. It allows users to design 2D room layouts and visualize them in full 3D.
 
-Currently, two official plugins are available:
+## 🚀 How to Setup and Run the Project
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Follow these steps to clone and run the project on your local machine.
 
-## React Compiler
+### 1. Clone the Repository
+Open your terminal and run the following commands:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+git clone https://github.com/PuntharaThirani/HCI_Group111.git
+cd HCI_Group111
 
-## Expanding the ESLint configuration
+2. Install Dependencies
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+You need to install all the required Node packages before running the app.
+
+npm install
+3. Setup Environment Variables (Crucial Step 🚨)
+
+Since security keys are not pushed to GitHub, you need to create a .env file manually to connect to the Supabase Database.
+
+Create a new file named .env in the root folder (same place as package.json).
+
+Add the following lines and ask the Project Admin (Punthara) for the actual secret keys:
+
+VITE_SUPABASE_URL=ask_admin_for_url
+VITE_SUPABASE_ANON_KEY=ask_admin_for_key
+
+4. Run the Development Server
+
+Once the setup is done, start the app:
+
+npm run dev
+
+Click the link shown in the terminal (usually http://localhost:5173
+) to view the app in your browser.
+
+🛠️ Tech Stack Used
+
+Frontend: React.js (built with Vite)
+
+3D Rendering: Three.js & React Three Fiber
+
+Backend/Database: Supabase (PostgreSQL & Auth)
+
+Routing: React Router v6
+
+Interactions: react-draggable
+
+👥 Git Workflow for Team Members
+
+To avoid merge conflicts, please follow this process when working on your assigned tasks:
+
+Get the latest updates: Before starting your work, always pull the latest code from the main branch.
+
+git pull origin main
+
+Create a new branch: Never work directly on main. Create a branch for your specific feature (e.g., Member 01 creates an auth branch).
+
+git checkout -b feature/your-feature-name
+
+Commit your work:
+
+git add .
+git commit -m "Added [feature name]"
+
+Push your branch:
+
+git push origin feature/your-feature-name
+
+Create a Pull Request (PR): Go to GitHub and create a Pull Request to merge your branch into main. Let the team review it before merging.
+
+Happy Coding! 💻✨

@@ -14,28 +14,30 @@ const getImageUrl = (fileName) => {
 
 const furnitureLibrary = [
   // --- LIVING ROOM ---
-  { id: 'sofa-2', category: 'Living Room', name: '2-Seater Sofa', image: getImageUrl('2-Seat_sofa.png'), width: 200, height: 120 },
-  { id: 'sofa-3', category: 'Living Room', name: '3-Seater Sofa', image: getImageUrl('3-Seat_sofa.png'), width: 300, height: 150 },
-  { id: 'coffee-table', category: 'Living Room', name: 'Coffee Table', image: getImageUrl('Coffee_table.png'), width: 150, height: 80 },
-  { id: 'tv-stand', category: 'Living Room', name: 'TV Console', image: getImageUrl('TV _console.png'), width: 280, height: 160 },
+  { id: 'sofa', category: 'Living Room', name: 'Sofa', image: getImageUrl('Sofa.png'), width: 200, height: 120 },
+  { id: 'coffee-table', category: 'Living Room', name: 'Coffee Table', image: getImageUrl('coffee table.png'), width: 150, height: 80 },
+  { id: 'tv-stand', category: 'Living Room', name: 'TV and tv stand', image: getImageUrl('Tv and tv stand.png'), width: 280, height: 160 },
  
  
   // --- DINING & KITCHEN ---
-  { id: 'dining-rect', category: 'Kitchen', name: 'Dining table & chair', image: getImageUrl('Dining_table&chair.png'), width: 450, height: 190 },
+  { id: 'dining-table', category: 'Kitchen', name: 'Dining table & chair', image: getImageUrl('Dining table.png'), width: 450, height: 190 },
   { id: 'kitchen-island', category: 'Kitchen', name: 'Kitchen Island', image: getImageUrl('kitchen_island.png'), width: 220, height: 170 },
-  { id: 'fridge', category: 'Kitchen', name: 'Refrigerator', image: getImageUrl('Fridge.png'), width: 250, height: 200 },
-  { id: 'cooktop', category: 'Kitchen', name: 'Cooktop/Oven', image: getImageUrl('Cooktop.png'), width: 100, height: 100 },
+  { id: 'fridge', category: 'Kitchen', name: 'Fridge', image: getImageUrl('Fridge.png'), width: 250, height: 200 },
+  { id: 'cooktop', category: 'Kitchen', name: 'Cooktop', image: getImageUrl('Cooktop.png'), width: 100, height: 100 },
 
   // --- BEDROOM ---
   { id: 'Bed', category: 'Bedroom', name: 'Bed', image: getImageUrl('Bed.png'), width: 300, height: 200 },
   { id: 'wardrobe', category: 'Bedroom', name: 'Wardrobe', image: getImageUrl('Wardrobe.png'), width: 220, height: 120 },
-  { id: 'nightstand', category: 'Bedroom', name: 'Nightstand', image: getImageUrl('Nightstand.png'), width: 100, height: 50 },
+  { id: 'nightstand', category: 'Bedroom', name: 'Night stand', image: getImageUrl('Night stand.png'), width: 100, height: 50 },
   { id: 'dressing-table', category: 'Bedroom', name: 'Dressing Table', image: getImageUrl('Dressing table.png'), width: 400, height: 200 },
 
   // --- BATHROOM ---
-  { id: 'bathtub', category: 'Bathroom', name: 'Bathtub', image: getImageUrl('Bathtub.png'), width: 360, height: 175 },
-  { id: 'wash-basin', category: 'Bathroom', name: 'Wash Basin', image: getImageUrl('Wash basin.png'), width: 350, height: 145 },
-  { id: 'toilet', category: 'Bathroom', name: 'Toilet Seat', image: getImageUrl('Toilet.png'), width: 345, height: 165 },
+  { id: 'bathtub', category: 'Bathroom', name: 'Bathtub', image: getImageUrl('Bath tub.png'), width: 360, height: 175 },
+  { id: 'sink', category: 'Bathroom', name: 'Sink', image: getImageUrl('Sink.png'), width: 350, height: 145 },
+  { id: 'toilet', category: 'Bathroom', name: 'Toilet', image: getImageUrl('Toilet.png'), width: 345, height: 165 },
+
+  // ---Office room ---//
+   { id: 'office-table', category: 'Office', name: 'Office table', image: getImageUrl('Office table.png'), width: 360, height: 175 },
 ];
 
 const FurnitureSidebar = ({ onAddFurniture }) => {

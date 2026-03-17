@@ -1,49 +1,50 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-<<<<<<< HEAD
 
-// තාවකාලික පිටු (මේවා පස්සේ Pages ෆෝල්ඩරයෙන් Import කරගන්න පුළුවන්)
-const Login = () => <div style={{ padding: "20px" }}><h2>Member 01: Login Page 🔐</h2></div>;
-const AdminDashboard = () => <div style={{ padding: "20px" }}><h2>Member 02: Admin Dashboard 📊</h2></div>;
-const Workspace = () => (
-  <div style={{ padding: "20px" }}>
-    <h2>Member 03 & 04: Design Workspace 🛠️</h2>
-    <div style={{ display: "flex", gap: "20px", marginTop: "20px" }}>
-      <div style={{ flex: 1, border: "2px dashed blue", padding: "100px", textAlign: "center" }}>2D Area (Member 3)</div>
-      <div style={{ flex: 1, border: "2px dashed green", padding: "100px", textAlign: "center" }}>3D Area (Member 4)</div>
-    </div>
-  </div>
-);
-=======
-import Workspace from "./pages/Workspace"; // 👈 ඔයා හදපු අලුත් Workspace එක මෙතනින් ගන්නවා
-
-// Login සහ Admin දැනට මෙහෙම තිබුණට ප්‍රශ්නයක් නැහැ
-const Login = () => <div style={{ padding: "20px" }}><h2>Member 01: Login Page 🔐</h2></div>;
-const AdminDashboard = () => <div style={{ padding: "20px" }}><h2>Member 02: Admin Dashboard 📊</h2></div>;
->>>>>>> Punthara-2D
+import Landing from "./pages/Landing";
+import AuthPage from "./pages/AuthPage";
+import Workspace from "./pages/Workspace";
+import ProtectedRoute from "./components/ProtectedRoute";
+import SignUp from "./pages/SignUp";
 
 function App() {
   return (
     <Router>
-<<<<<<< HEAD
-      <div style={{ background: "#333", padding: "10px", color: "white", display: "flex", gap: "15px" }}>
-        <Link to="/" style={{ color: "white" }}>Login (M1)</Link>
-        <Link to="/admin" style={{ color: "white" }}>Admin (M2)</Link>
-        <Link to="/workspace" style={{ color: "white" }}>Workspace (M3 & M4)</Link>
-=======
-      {/* Navigation Bar */}
-      <div style={{ background: "#333", padding: "10px", color: "white", display: "flex", gap: "15px" }}>
-        <Link to="/" style={{ color: "white", textDecoration: "none" }}>Login (M1)</Link>
-        <Link to="/admin" style={{ color: "white", textDecoration: "none" }}>Admin (M2)</Link>
-        <Link to="/workspace" style={{ color: "white", textDecoration: "none" }}>Workspace (M3 & M4)</Link>
->>>>>>> Punthara-2D
-      </div>
+
+      <nav className="bg-slate-900 p-4 flex gap-6 text-white text-[10px] font-black uppercase tracking-[0.2em] border-b border-slate-800">
+        <Link to="/">Home</Link>
+        <Link to="/login">Customer Login</Link>
+        <Link to="/admin-login">Admin Login</Link>
+        <Link to="/workspace">Workspace</Link>
+      </nav>
 
       <Routes>
-        <Route path="/" element={<Login />} />
-        <Route path="/admin" element={<AdminDashboard />} />
-        <Route path="/workspace" element={<Workspace />} />
+        <Route path="/" element={<Landing />} />
+        <Route path="/login" element={<AuthPage isAdmin={false} />} />
+        <Route path="/admin-login" element={<AuthPage isAdmin={true} />} />
+        <Route path="/signup" element={<SignUp />} />
+
+        <Route 
+          path="/workspace" 
+          element={
+            <ProtectedRoute>
+              <Workspace />
+            </ProtectedRoute>
+          } 
+        />
+
+        <Route 
+          path="/admin" 
+          element={
+            <ProtectedRoute>
+              <div>Admin Dashboard</div>
+            </ProtectedRoute>
+          } 
+        />
+
+        <Route path="*" element={<div>404 | Page Not Found</div>} />
       </Routes>
+
     </Router>
   );
 }

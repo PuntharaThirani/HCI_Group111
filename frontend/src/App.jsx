@@ -17,9 +17,16 @@ function App() {
       </div>
 
       <Routes>
+        {/* සාමාන්‍ය Routes */}
         <Route path="/" element={<Login />} />
-        <Route path="/admin" element={<AdminDashboard />} />
         <Route path="/workspace" element={<Workspace />} />
+
+        {/* 🏢 Member 02: Admin & Management Routes */}
+        <Route path="/admin" element={<AdminDashboard />} />
+        <Route path="/admin/projects" element={<ProjectsPage />} />
+        <Route path="/admin/projects/:id" element={<ProjectDetails />} />
+        <Route path="/admin/settings" element={<SettingsPage />} />
+        <Route path="/admin/clients" element={<ClientsPage />} />
       </Routes>
     </Router>
   );

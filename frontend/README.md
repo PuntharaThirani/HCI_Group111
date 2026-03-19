@@ -24,8 +24,9 @@ Since security keys are not pushed to GitHub, you need to create a `.env` file m
 
 Create a new file named `.env` inside the `frontend` folder (same place as `package.json`) and add:
 
-VITE_SUPABASE_URL=ask_admin_for_url
-VITE_SUPABASE_ANON_KEY=ask_admin_for_key
+VITE_SUPABASE_URL= https://rqhnmggpbdeudtorfwod.supabase.co
+
+VITE_SUPABASE_ANON_KEY= eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJxaG5tZ2dwYmRldWR0b3Jmd29kIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzMxNTUzMjIsImV4cCI6MjA4ODczMTMyMn0.9yT3-EXh6M3-yrgZxJF8ePdqnIYdtQlHocWyt81e3x0
 
 
 > 🔑 Contact **Punthara** (Project Admin) for the actual secret keys.

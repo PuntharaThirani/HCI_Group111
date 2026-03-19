@@ -1,0 +1,91 @@
+import React from 'react';
+
+// Use underscore instead of space in the folder name
+const images = import.meta.glob('../../assets/furniture_images/*.{png,jpg,jpeg,svg}', { 
+  eager: true, 
+  import: 'default' 
+});
+
+const getImageUrl = (fileName) => {
+  // Use the exact new folder name here
+  const path = `../../assets/furniture_images/${fileName}`;
+  return images[path] || `https://placehold.co/100x100?text=${fileName}`;
+};
+
+const furnitureLibrary = [
+  // --- LIVING ROOM ---
+  { id: 'sofa', category: 'Living Room', name: 'Sofa', image: getImageUrl('Sofa.png'), width: 200, height: 120 },
+  { id: 'coffee-table', category: 'Living Room', name: 'Coffee Table', image: getImageUrl('coffee table.png'), width: 150, height: 80 },
+  { id: 'tv-stand', category: 'Living Room', name: 'TV and tv stand', image: getImageUrl('Tv and tv stand.png'), width: 280, height: 160 },
+ 
+ 
+  // --- DINING & KITCHEN ---
+  { id: 'dining-table', category: 'Kitchen', name: 'Dining table & chair', image: getImageUrl('Dining table.png'), width: 450, height: 190 },
+  { id: 'kitchen-island', category: 'Kitchen', name: 'Kitchen Island', image: getImageUrl('kitchen_island.png'), width: 220, height: 170 },
+  { id: 'fridge', category: 'Kitchen', name: 'Fridge', image: getImageUrl('Fridge.png'), width: 250, height: 200 },
+  { id: 'cooktop', category: 'Kitchen', name: 'Cooktop', image: getImageUrl('Cooktop.png'), width: 100, height: 100 },
+
+  // --- BEDROOM ---
+  { id: 'Bed', category: 'Bedroom', name: 'Bed', image: getImageUrl('Bed.png'), width: 300, height: 200 },
+  { id: 'wardrobe', category: 'Bedroom', name: 'Wardrobe', image: getImageUrl('Wardrobe.png'), width: 220, height: 120 },
+  { id: 'nightstand', category: 'Bedroom', name: 'Night stand', image: getImageUrl('Night stand.png'), width: 100, height: 50 },
+  { id: 'dressing-table', category: 'Bedroom', name: 'Dressing Table', image: getImageUrl('Dressing table.png'), width: 400, height: 200 },
+
+  // --- BATHROOM ---
+  { id: 'bathtub', category: 'Bathroom', name: 'Bathtub', image: getImageUrl('Bath tub.png'), width: 360, height: 175 },
+  { id: 'sink', category: 'Bathroom', name: 'Sink', image: getImageUrl('Sink.png'), width: 350, height: 145 },
+  { id: 'toilet', category: 'Bathroom', name: 'Toilet', image: getImageUrl('Toilet.png'), width: 345, height: 165 },
+
+  // ---Office room ---//
+   { id: 'office-table', category: 'Office', name: 'Office table', image: getImageUrl('Office table.png'), width: 360, height: 175 },
+];
+
+const FurnitureSidebar = ({ onAddFurniture }) => {
+  const categories = [...new Set(furnitureLibrary.map(item => item.category))];
+
+  return (
+    <div className="flex flex-col h-full bg-white">
+      {categories.map((cat) => (
+        <div key={cat} className="mb-8 px-4">
+          {/* Category Title */}
+          <h5 className="mb-4 border-b pb-2 text-xs font-medium uppercase tracking-wider text-slate-400">
+            {cat}
+          </h5>
+
+          <div className="grid grid-cols-1 gap-3">
+            {furnitureLibrary
+              .filter(item => item.category === cat)
+              .map((item) => (
+                <button
+                  key={item.id}
+                  onClick={() => onAddFurniture(item)}
+                  className="group flex items-center gap-4 rounded-xl border border-slate-200 bg-white p-3 text-left transition hover:border-[#C96A2B]/40 hover:bg-slate-50 active:scale-[0.98]"
+                >
+                  {/* Image */}
+                  <div className="flex h-14 w-14 items-center justify-center rounded-lg border border-slate-200 bg-white">
+                    <img
+                      src={item.image}
+                      alt={item.name}
+                      className="max-h-full max-w-full object-contain"
+                    />
+                  </div>
+
+                  {/* Text */}
+                  <div className="flex-1">
+                    <p className="text-sm font-medium text-slate-800">
+                      {item.name}
+                    </p>
+                    <p className="mt-1 text-xs text-slate-400">
+                      {item.width} × {item.height} cm
+                    </p>
+                  </div>
+                </button>
+              ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+};
+
+export default FurnitureSidebar;

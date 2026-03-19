@@ -1,75 +1,109 @@
-🛋️ 3D Furniture Design Web App (HCI Group 111)
+# 🛋️ 3D Furniture Design Web App — HCI Group 111
 
-This is a web-based 3D Furniture Design Application built for our university HCI module. It allows users to design 2D room layouts and visualize them in full 3D.
+A web-based 3D Furniture Design Application built for our university HCI module.  
+Users can design 2D room layouts and visualize them in full 3D.
 
-## 🚀 How to Setup and Run the Project
 
-Follow these steps to clone and run the project on your local machine.
+## 🚀 How to Setup and Run
 
 ### 1. Clone the Repository
-Open your terminal and run the following commands:
 
 git clone https://github.com/PuntharaThirani/HCI_Group111.git
-cd HCI_Group111
 
-2. Install Dependencies
+cd HCI_Group111/frontend
 
-You need to install all the required Node packages before running the app.
+
+### 2. Install Dependencies
 
 npm install
-3. Setup Environment Variables (Crucial Step 🚨)
 
-Since security keys are not pushed to GitHub, you need to create a .env file manually to connect to the Supabase Database.
 
-Create a new file named .env in the root folder (same place as package.json).
+### 3. Setup Environment Variables 🚨
 
-Add the following lines and ask the Project Admin (Punthara) for the actual secret keys:
+Since security keys are not pushed to GitHub, you need to create a `.env` file manually.
+
+Create a new file named `.env` inside the `frontend` folder (same place as `package.json`) and add:
 
 VITE_SUPABASE_URL=ask_admin_for_url
 VITE_SUPABASE_ANON_KEY=ask_admin_for_key
 
-4. Run the Development Server
 
-Once the setup is done, start the app:
+> 🔑 Contact **Punthara** (Project Admin) for the actual secret keys.
+
+### 4. Run the Development Server
 
 npm run dev
 
-Click the link shown in the terminal (usually http://localhost:5173
-) to view the app in your browser.
+Open your browser and go to **http://localhost:5173**
 
-🛠️ Tech Stack Used
 
-Frontend: React.js (built with Vite)
+## 🛠️ Tech Stack
 
-3D Rendering: Three.js & React Three Fiber
+| Technology | Usage |
+|---|---|
+| React.js + Vite | Frontend Framework |
+| Three.js + React Three Fiber | 3D Rendering |
+| Supabase | Backend / Database / Auth |
+| React Router v6 | Page Routing |
+| Tailwind CSS | Styling |
+| react-draggable | Drag Interactions |
 
-Backend/Database: Supabase (PostgreSQL & Auth)
 
-Routing: React Router v6
+## 👥 Git Workflow for Team Members
 
-Interactions: react-draggable
+> ⚠️ **Never work directly on `main` branch!**
 
-👥 Git Workflow for Team Members
-
-To avoid merge conflicts, please follow this process when working on your assigned tasks:
-
-Get the latest updates: Before starting your work, always pull the latest code from the main branch.
+### Step 1 — Get Latest Updates
+Always pull before starting your work:
 
 git pull origin main
 
-Create a new branch: Never work directly on main. Create a branch for your specific feature (e.g., Member 01 creates an auth branch).
+### Step 2 — Create Your Branch
 
 git checkout -b feature/your-feature-name
 
-Commit your work:
+Example: `feature/auth-page`, `feature/3d-viewer`
+
+### Step 3 — Commit Your Work
 
 git add .
 git commit -m "Added [feature name]"
 
-Push your branch:
+
+### Step 4 — Push Your Branch
 
 git push origin feature/your-feature-name
 
-Create a Pull Request (PR): Go to GitHub and create a Pull Request to merge your branch into main. Let the team review it before merging.
+
+### Step 5 — Create a Pull Request
+Go to GitHub → Create a **Pull Request** → Let the team review → Merge to `main`
+
+
+
+## 📁 Project Structure
+
+
+HCI_Group111/
+└── frontend/
+    ├── public/
+    │   ├── models/        # 3D .glb model files
+    │   └── thumbnails/    # Furniture thumbnail images
+    ├── src/
+    │   ├── components/    # Reusable UI components
+    │   ├── pages/         # Page components
+    │   ├── assets/        # Images & static files
+    │   └── utils/         # Helper functions
+    ├── .env.example       # Environment variable template
+    ├── package.json
+    └── vite.config.js
+
+
+
+## ⚠️ Important Notes
+
+- **Never push `.env` file** to GitHub — it contains secret keys!
+- `node_modules/` and `dist/` folders are ignored by Git automatically
+- Always create a new branch for each feature
+
 
 Happy Coding! 💻✨
